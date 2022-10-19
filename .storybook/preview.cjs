@@ -1,7 +1,16 @@
-import { themes } from '@storybook/theming'
-
+import { themes } from '@storybook/theming';
+import { initialize, mswDecorator } from 'msw-storybook-addon';
 import '../src/styles/global.css';
 /*You need these files here*/
+
+// Initialize MSW
+initialize({
+  onUnhandledRequest: 'bypass'
+});
+
+// Provide the MSW addon decorator globally
+export const decorators = [mswDecorator];
+
 
 
 export const parameters = {
